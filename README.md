@@ -15,10 +15,10 @@ pipenv shell
 # Submit Spark App using spark-submit
 ```
 # For local run:
-spark-submit ./main.py 10
+spark-submit ./calc-pi.py 10
 
 # For standalone cluster:
-spark-submit --master spark://fukuda:7077 ./main.py 10
+spark-submit --master spark://fukuda:7077 ./calc-pi.py 10
 
 # Access Application UI:
 http://fukuda.hitronhub.home:4040
@@ -45,7 +45,7 @@ minikube image load spark-pi:latest
 ```
 kubectl cluster-info
 
-./spark-submit --master k8s://https://192.168.49.2:8443 --deploy-mode cluster --name spark-pi --conf spark.executor.instances=3 --conf spark.kubernetes.container.image=spark-pi:latest --conf spark.kubernetes.namespace=apache-spark --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark-pi --conf spark.kubernetes.executor.request.cores=100m --conf spark.kubernetes.executor.limit.cores=100m local:///app/main.py 100
+./spark-submit --master k8s://https://192.168.49.2:8443 --deploy-mode cluster --name spark-pi --conf spark.executor.instances=3 --conf spark.kubernetes.container.image=spark-pi:latest --conf spark.kubernetes.namespace=apache-spark --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark-pi --conf spark.kubernetes.executor.request.cores=100m --conf spark.kubernetes.executor.limit.cores=100m local:///app/calc-pi.py 100
 ```
 
 ### Notes
